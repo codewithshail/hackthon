@@ -11,7 +11,6 @@ import {
 import { menuOptions } from "@/lib/constant";
 import clsx from "clsx";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { BookType, Brain, CheckCheck, GitBranch, LucideMousePointerClick } from "lucide-react";
 

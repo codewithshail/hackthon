@@ -2,8 +2,8 @@ import { HoverEffect } from "../hover-card";
 
 export function CardHover() {
   return (
-    <div className="max-w-5xl mx-auto px-8">
-      <HoverEffect items={projects} />
+    <div className="max-w-5xl mx-auto px-8 z-0 relative">
+        <HoverEffect items={projects} />
     </div>
   );
 }

@@ -115,3 +115,9 @@
 .cl-socialButtonsProviderIcon__apple {
   filter: invert(1)
 }
+
+/* CSS Extra Property */
+
+.filter-white {
+  filter: invert(1);
+}
