@@ -3,14 +3,15 @@ import { db } from '@/lib/db'
 import { currentUser } from '@clerk/nextjs/server'
 import ProfilePicture from '@/components/dashboard/profile-picture'
 import ProfileForm from '@/components/dashboard/ProfileForm'
+import { ClerkAPI } from '@/lib/clerk-webhook/route'
 
 type Props = {}
-
 const Settings = async (props: Props) => {
   const authUser = await currentUser()
   if (!authUser) return null
 
   const user = await db.user.findUnique({ where: { clerkId: authUser.id } })
+
   const removeProfileImage = async () => {
     'use server'
     const response = await db.user.update({
@@ -21,6 +22,9 @@ const Settings = async (props: Props) => {
         profileImage: '',
       },
     })
+
+    // Update profile image on Clerk
+    await ClerkAPI.updateUser(authUser.id, { profile_image: '' })
     return response
   }
 
@@ -36,12 +40,13 @@ const Settings = async (props: Props) => {
       },
     })
 
+    // Update profile image on Clerk
+    await ClerkAPI.updateUser(authUser.id, { profile_image: image })
     return response
   }
 
   const updateUserInfo = async (name: string) => {
     'use server'
-
     const updateUser = await db.user.update({
       where: {
         clerkId: authUser.id,
@@ -50,6 +55,9 @@ const Settings = async (props: Props) => {
         name,
       },
     })
+
+    // Update user name on Clerk
+    await ClerkAPI.updateUser(authUser.id, { first_name: name })
     return updateUser
   }
 

@@ -8,14 +8,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
-import { AiChatSession } from "@/config/AiModel";
-import { db } from "@/config";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
-import { JsonForms } from "@/config/schema";
 import moment from "moment/moment";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { AiChatSession } from "@/lib/GeminiModel";
+import { db } from "@/lib/db";
+import { JsonForms } from "@/lib/db/schema";
 
 const prompt =
   ",On the basis of description please give form in json format with form title, form subheading with form having Form field, form name, placeholder name, and form label, fieldtype, field required in Json format";

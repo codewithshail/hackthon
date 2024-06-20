@@ -1,17 +1,15 @@
-import React from 'react'
-import AiNavbar from './_components/Navbar'
+import Providers from "@/components/Provider";
+import { ThemeProvider } from "@/components/theme-provider";
+import React from "react";
 
-type Props = { children: React.ReactNode }
+type Props = { children: React.ReactNode };
 
 const Layout = (props: Props) => {
   return (
-    <div className="flex overflow-hidden h-screen">
-      <div className="w-full">
-        <AiNavbar />
-        {props.children}
-      </div>
-    </div>
-  )
-}
+    <Providers>
+        <div>{props.children}</div>
+    </Providers>
+  );
+};
 
-export default Layout
+export default Layout;

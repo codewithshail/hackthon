@@ -27,6 +27,56 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  daisyui: {
+    themes: [
+      "light",
+      "dark",
+      "cupcake",
+      "bumblebee",
+      "emerald",
+      "corporate",
+      "synthwave",
+      "retro",
+      "cyberpunk",
+      "valentine",
+      "halloween",
+      "garden",
+      "forest",
+      "aqua",
+      "lofi",
+      "pastel",
+      "fantasy",
+      "wireframe",
+      "black",
+      "luxury",
+      "dracula",
+      "cmyk",
+      "autumn",
+      "business",
+      "acid",
+      "lemonade",
+      "night",
+      "coffee",
+      "winter",
+      "dim",
+      "nord",
+      "sunset",
+      {
+        mystic: {
+          "primary": "#800080",
+          "primary-content": "#4b0082",
+          "secondary": "#8a2be2",
+          "accent": "#da70d6",
+          "neutral": "#2f4f4f",
+          "base-100": "#4b0082",
+          "info": "#00ced1",
+          "success": "#00fa9a",
+          "warning": "#ff4500",
+          "error": "#dc143c",
+        }
+      }
+    ],
+  },
   prefix: "",
   theme: {
     container: {
@@ -151,6 +201,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require('daisyui'),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
